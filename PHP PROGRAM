@@ -14,7 +14,43 @@ Variable CaPiTaL is
 
 === Code Execution Successful ===
 
+PHP QUESTION2
+INPUT:
+<?php
+$max = 3;
 
+echo "<table border='1' cellpadding='5' cellspacing='0'>";
+
+// Header row
+echo "<tr><th></th>";
+for ($i = 1; $i <= $max; $i++) {
+    echo "<th>$i</th>";
+}
+echo "</tr>";
+
+// Table rows
+for ($i = 1; $i <= $max; $i++) {
+    echo "<tr>";
+    // Row header
+    echo "<th>$i</th>";
+
+    // Division cells
+    for ($j = 1; $j <= $max; $j++) {
+        $result = $i / $j;
+        // Format number to 2 decimal places (you can change precision here)
+        echo "<td>" . number_format($result, 2) . "</td>";
+    }
+    echo "</tr>";
+}
+
+echo "</table>";
+?>
+
+OUTPUT:
+<table border='1' cellpadding='5' cellspacing='0'><tr><th></th><th>1</th><th>2</th><th>3</th></tr><tr><th>1</th><td>1.00</td><td>0.50</td><td>0.33</td></tr><tr><th>2</th><td>2.00</td><td>1.00</td><td>0.67</td></tr><tr><th>3</th><td>3.00</td><td>1.50</td><td>1.00</td></tr></table>
+
+
+=== Code Execution Successful ===
 
 
 
