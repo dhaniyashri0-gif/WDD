@@ -1,1 +1,7 @@
+Variable capital is 67
 
+Warning: Undefined variable $CaPiTaL in /tmp/fO4zTQRTZN/main.php on line 4
+Variable CaPiTaL is 
+
+
+=== Code Execution Successful ===
