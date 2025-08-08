@@ -891,3 +891,53 @@ Highest Value: " . $result["highest"] . "
 Lowest Value: " . $result["lowest"] . "
 
 "; ?>
+question21
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Leap Year Checker</title>
+</head>
+<body>
+
+<h2>Check if a Year is Leap Year</h2>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Enter a year: 
+    <input type="number" name="year" required>
+    <input type="submit" value="Check">
+</form>
+
+<?php
+// Function to check leap year
+function isLeapYear($year) {
+    if (($year % 400) == 0) {
+        return true;
+    } elseif (($year % 100) == 0) {
+        return false;
+    } elseif (($year % 4) == 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $year = intval($_POST["year"]);
+    if (isLeapYear($year)) {
+        echo "<h3>$year is a Leap Year.</h3>";
+    } else {
+        echo "<h3>$year is NOT a Leap Year.</h3>";
+    }
+}
+?>
+
+</body>
+</html>
+output:
+Check if a Year is Leap Year
+"> Enter a year: 
+ 
+$year is a Leap Year."; } else { echo "
+$year is NOT a Leap Year.
+"; } } ?>
