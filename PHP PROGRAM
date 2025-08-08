@@ -941,3 +941,62 @@ Check if a Year is Leap Year
 $year is a Leap Year."; } else { echo "
 $year is NOT a Leap Year.
 "; } } ?>
+question 22
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Count Word Occurrences</title>
+</head>
+<body>
+
+<h2>Count Occurrences of a Word in a String</h2>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Enter a string:<br>
+    <textarea name="inputString" rows="5" cols="50" required><?php 
+        echo isset($_POST['inputString']) ? htmlspecialchars($_POST['inputString']) : '';
+    ?></textarea><br><br>
+
+    Enter the word to count:<br>
+    <input type="text" name="word" required value="<?php 
+        echo isset($_POST['word']) ? htmlspecialchars($_POST['word']) : '';
+    ?>"><br><br>
+
+    <input type="submit" value="Count">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $inputString = $_POST["inputString"];
+    $word = $_POST["word"];
+
+    // Convert both string and word to lowercase for case-insensitive search
+    $lowerString = strtolower($inputString);
+    $lowerWord = strtolower($word);
+
+    // Use preg_match_all with word boundaries to count whole word occurrences
+    $pattern = '/\b' . preg_quote($lowerWord, '/') . '\b/';
+    preg_match_all($pattern, $lowerString, $matches);
+
+    $count = count($matches[0]);
+
+    echo "<h3>The word '<strong>" . htmlspecialchars($word) . "</strong>' occurs <strong>$count</strong> time(s) in the given string.</h3>";
+}
+?>
+
+</body>
+</html>
+output:
+Count Occurrences of a Word in a String
+"> Enter a string:
+<?php 
+        echo isset($_POST['inputString']) ? htmlspecialchars($_POST['inputString']) : '';
+    ?>
+
+
+Enter the word to count:
+<?php         echo isset($_POST['word']) ? htmlspecialchars($_POST['word']) : '';    ?>
+
+
+The word '" . htmlspecialchars($word) . "' occurs $count time(s) in the given string."; } ?>
