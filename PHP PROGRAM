@@ -694,5 +694,59 @@ Current Balance: Rs. $balance
 
 Choose Action: 
 Deposit
+question18
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP isset() Function Example</title>
+</head>
+<body>
 
+<h2>isset() Function Example</h2>
+
+<?php
+$name = "John";
+$age = null;
+
+if (isset($name)) {
+    echo "<p>\$name is set and not NULL. Value: $name</p>";
+} else {
+    echo "<p>\$name is not set.</p>";
+}
+
+if (isset($age)) {
+    echo "<p>\$age is set and not NULL. Value: $age</p>";
+} else {
+    echo "<p>\$age is not set or is NULL.</p>";
+}
+
+if (isset($email)) {
+    echo "<p>\$email is set.</p>";
+} else {
+    echo "<p>\$email is not set at all.</p>";
+}
+?>
+
+</body>
+</html>
+output:
+isset() Function Example
+\$name is set and not NULL. Value: $name
+"; } else { echo "
+\$name is not set.
+
+"; } if (isset($age)) { echo "
+\$age is set and not NULL. Value: $age
+
+"; } else { echo "
+\$age is not set or is NULL.
+
+"; } if (isset($email)) { echo "
+\$email is set.
+
+"; } else { echo "
+\$email is not set at all.
+
+"; } ?>
 
