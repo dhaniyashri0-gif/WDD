@@ -278,3 +278,81 @@ this,,that+2.2
 
 
 === Code Execution Successful ===
+question11
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day of the Week using Switch Case</title>
+</head>
+<body>
+
+<h2>Find Day of the Week</h2>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Enter a number (1 to 7): 
+    <input type="number" name="day" min="1" max="7" required>
+    <input type="submit" value="Show Day">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $day = intval($_POST['day']);
+
+    echo "<h3>Result:</h3>";
+
+    switch ($day) {
+        case 1:
+            echo "Sunday";
+            break;
+        case 2:
+            echo "Monday";
+            break;
+        case 3:
+            echo "Tuesday";
+            break;
+        case 4:
+            echo "Wednesday";
+            break;
+        case 5:
+            echo "Thursday";
+            break;
+        case 6:
+            echo "Friday";
+            break;
+        case 7:
+            echo "Saturday";
+            break;
+        default:
+            echo "Invalid input! Please enter a number between 1 and 7.";
+            break;
+    }
+}
+?>
+
+</body>
+</html>
+output:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day of the Week using Switch Case</title>
+</head>
+<body>
+
+<h2>Find Day of the Week</h2>
+
+<form method="post" action="/tmp/gNrhi5Kz4j/main.php">
+    Enter a number (1 to 7): 
+    <input type="number" name="day" min="1" max="7" required>
+    <input type="submit" value="Show Day">
+</form>
+
+
+Warning: Undefined array key "REQUEST_METHOD" in /tmp/gNrhi5Kz4j/main.php on line 17
+
+</body>
+</html>
+
+
+=== Code Execution Successful ===
