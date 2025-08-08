@@ -608,3 +608,91 @@ Enter second number:
 
 
 Result:"; echo "The sum of $num1 and $num2 is: $sum"; } ?>
+question17
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Transaction System</title>
+</head>
+<body>
+
+<h2>Simple Bank Transaction</h2>
+
+<?php
+// Initial balance (could be session-based or from a database in real-world apps)
+$balance = 1000; // Starting balance
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $amount = floatval($_POST["amount"]);
+    $action = $_POST["action"];
+
+    // Use control structures to handle deposit and withdrawal
+    if ($amount <= 0) {
+        echo "<p style='color:red;'>Amount must be greater than 0.</p>";
+    } else {
+        switch ($action) {
+            case "deposit":
+                $balance += $amount;
+                echo "<p style='color:green;'>Deposited Rs. $amount successfully.</p>";
+                break;
+
+            case "withdraw":
+                if ($amount > $balance) {
+                    echo "<p style='color:red;'>Insufficient balance. Cannot withdraw Rs. $amount.</p>";
+                } else {
+                    $balance -= $amount;
+                    echo "<p style='color:green;'>Withdrawn Rs. $amount successfully.</p>";
+                }
+                break;
+
+            default:
+                echo "<p style='color:red;'>Invalid action selected.</p>";
+        }
+    }
+
+    echo "<h3>Current Balance: Rs. $balance</h3>";
+}
+?>
+
+<!-- Transaction Form -->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Enter Amount: 
+    <input type="number" name="amount" step="0.01" required><br><br>
+
+    Choose Action:
+    <select name="action" required>
+        <option value="deposit">Deposit</option>
+        <option value="withdraw">Withdraw</option>
+    </select><br><br>
+
+    <input type="submit" value="Submit Transaction">
+</form>
+
+</body>
+</html>
+output:
+Simple Bank Transaction
+Amount must be greater than 0.
+"; } else { switch ($action) { case "deposit": $balance += $amount; echo "
+Deposited Rs. $amount successfully.
+
+"; break; case "withdraw": if ($amount > $balance) { echo "
+Insufficient balance. Cannot withdraw Rs. $amount.
+
+"; } else { $balance -= $amount; echo "
+Withdrawn Rs. $amount successfully.
+
+"; } break; default: echo "
+Invalid action selected.
+
+"; } } echo "
+Current Balance: Rs. $balance
+"; } ?>
+"> Enter Amount: 
+
+
+Choose Action: 
+Deposit
+
+
