@@ -1187,4 +1187,35 @@ Newlines converted:
 HTML Safe String: " . htmlspecialchars($unsafe) . "
 
 "; ?> output:
+question25
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Replace First 'the' with 'best'</title>
+</head>
+<body>
 
+<h2>Replace First Occurrence of 'the' with 'best'</h2>
+
+<?php
+// Original string
+$original = "The Thing will come to you soon";
+
+// Replace only the first occurrence of 'the' (case-insensitive)
+$replaced = preg_replace('/\bthe\b/i', 'best', $original, 1);
+
+// Display results
+echo "<p><strong>Original:</strong> $original</p>";
+echo "<p><strong>Modified:</strong> $replaced</p>";
+?>
+
+</body>
+</html>
+output:
+Replace First Occurrence of 'the' with 'best'
+Original: $original
+"; echo "
+Modified: $replaced
+
+"; ?>
