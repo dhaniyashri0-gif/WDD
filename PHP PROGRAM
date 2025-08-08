@@ -605,7 +605,104 @@ Add Two Numbers
 
 
 Enter second number: 
+question20
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form with Validation</title>
+    <style>
+        .error { color: red; }
+        .success { color: green; }
+        label { display: block; margin-top: 10px; }
+    </style>
+</head>
+<body>
 
+<h2>Contact Us</h2>
+
+<?php
+// Initialize variables and error messages
+$name = $email = $message = "";
+$nameErr = $emailErr = $messageErr = "";
+$successMsg = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $valid = true;
+
+    // Validate Name
+    if (empty(trim($_POST["name"]))) {
+        $nameErr = "Name is required.";
+        $valid = false;
+    } else {
+        $name = htmlspecialchars(trim($_POST["name"]));
+    }
+
+    // Validate Email
+    if (empty(trim($_POST["email"]))) {
+        $emailErr = "Email is required.";
+        $valid = false;
+    } elseif (!filter_var(trim($_POST["email"]), FILTER_VALIDATE_EMAIL)) {
+        $emailErr = "Invalid email format.";
+        $valid = false;
+    } else {
+        $email = htmlspecialchars(trim($_POST["email"]));
+    }
+
+    // Validate Message
+    if (empty(trim($_POST["message"]))) {
+        $messageErr = "Message is required.";
+        $valid = false;
+    } else {
+        $message = htmlspecialchars(trim($_POST["message"]));
+    }
+
+    // If all fields are valid, show success message
+    if ($valid) {
+        $successMsg = "Thank you, $name. Your message has been received.";
+        // Here you could add code to send email or save message
+        // Clear inputs after success
+        $name = $email = $message = "";
+    }
+}
+?>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" value="<?php echo $name; ?>">
+    <span class="error"><?php echo $nameErr; ?></span>
+
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="email" value="<?php echo $email; ?>">
+    <span class="error"><?php echo $emailErr; ?></span>
+
+    <label for="message">Message:</label>
+    <textarea name="message" id="message" rows="5" cols="40"><?php echo $message; ?></textarea>
+    <span class="error"><?php echo $messageErr; ?></span><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if (!empty($successMsg)) {
+    echo "<p class='success'>$successMsg</p>";
+}
+?>
+
+</body>
+</html>
+output:
+Contact Us
+">
+Name:
+<?php echo $name; ?>
+Email:
+<?php echo $email; ?>
+Message:
+<?php echo $message; ?>
+
+$successMsg
+"; } ?>
 
 Result:"; echo "The sum of $num1 and $num2 is: $sum"; } ?>
 question17
