@@ -219,3 +219,40 @@ Results:"; echo "Subtotal: $" . number_format($subtotal, 2) . "
 "; echo "Tax (10%): $" . number_format($tax, 2) . "
 "; echo "Total Cost: $" . number_format($total, 2) . "
 "; } ?>
+question9
+input:
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Variable Output Prediction</title>
+</head>
+<body>
+
+<?php
+// DO NOT use $this outside of a class; renamed to $this_var
+$this_var = "this";
+$that = "that";
+$the_other = 2.2000000000;
+
+// $not_set is NOT defined, will be an empty string when used in double-quoted strings
+print("$this_var,$not_set,$that+$the_other");
+?>
+
+</body>
+</html>
+output:
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>PHP Variable Output Prediction</title>
+</head>
+<body>
+
+
+Warning: Undefined variable $not_set in /tmp/BZE1gqgzFj/main.php on line 15
+this,,that+2.2
+</body>
+</html>
+
+
+=== Code Execution Successful ===
