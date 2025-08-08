@@ -1,3 +1,4 @@
+
 PHP QUESTION1
 INPUT:
 <?php
@@ -420,3 +421,83 @@ Warning: Undefined array key "REQUEST_METHOD" in /tmp/3pVw2oa6Eu/main.php on lin
 === Code Execution Successful ===utput:
 question14
 input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Contact Form</title>
+</head>
+<body>
+
+<h2>Contact Form</h2>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize and retrieve form inputs
+    $name = htmlspecialchars(trim($_POST["name"]));
+    $email = htmlspecialchars(trim($_POST["email"]));
+    $message = htmlspecialchars(trim($_POST["message"]));
+
+    // Basic validation
+    if (!empty($name) && !empty($email)) {
+        echo "<h3>Thank you, $name!</h3>";
+        echo "<p>We have received your message.</p>";
+        echo "<p>Confirmation has been sent to <strong>$email</strong>.</p>";
+    } else {
+        echo "<p style='color:red;'>Please fill in both name and email fields.</p>";
+    }
+
+    echo '<br><a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Submit another response</a>';
+} else {
+?>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" id="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" id="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea name="message" id="message" rows="5" cols="40"></textarea><br><br>
+
+    <input type="submit" value="Send">
+</form>
+
+<?php
+}
+?>
+
+</body>
+</html>
+output:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Contact Form</title>
+</head>
+<body>
+
+<h2>Contact Form</h2>
+
+
+Warning: Undefined array key "REQUEST_METHOD" in /tmp/nNaagHLCht/main.php on line 11
+
+<form method="post" action="/tmp/nNaagHLCht/main.php">
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" id="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" id="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea name="message" id="message" rows="5" cols="40"></textarea><br><br>
+
+    <input type="submit" value="Send">
+</form>
+
+
+</body>
+</html>
+
+
+=== Code Execution Successful ===
