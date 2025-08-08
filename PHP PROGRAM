@@ -560,3 +560,51 @@ Warning: Undefined array key "REQUEST_METHOD" in /tmp/XhYSrt3ILr/main.php on lin
 
 
 === Code Execution Successful ===
+question16
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of Two Numbers</title>
+</head>
+<body>
+
+<h2>Add Two Numbers</h2>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Enter first number: 
+    <input type="number" name="num1" required><br><br>
+    
+    Enter second number: 
+    <input type="number" name="num2" required><br><br>
+
+    <input type="submit" name="submit" value="Calculate Sum">
+</form>
+
+<?php
+// Function to calculate sum
+function addNumbers($a, $b) {
+    return $a + $b;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+    $num1 = floatval($_POST["num1"]);
+    $num2 = floatval($_POST["num2"]);
+    $sum = addNumbers($num1, $num2);
+
+    echo "<h3>Result:</h3>";
+    echo "The sum of $num1 and $num2 is: <strong>$sum</strong>";
+}
+?>
+
+</body>
+</html>
+output:
+Add Two Numbers
+"> Enter first number: 
+
+
+Enter second number: 
+
+
+Result:"; echo "The sum of $num1 and $num2 is: $sum"; } ?>
