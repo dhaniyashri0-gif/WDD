@@ -68,4 +68,59 @@ The antelope has 4 leg(s).
 
 
 === Code Execution Successful ===
+question 6
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pass Information Between Pages - PHP POST Method</title>
+</head>
+<body>
 
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Process form data
+    $name = htmlspecialchars($_POST['name']);
+    $age = htmlspecialchars($_POST['age']);
+
+    echo "<h2>Received Information:</h2>";
+    echo "Name: " . $name . "<br>";
+    echo "Age: " . $age . "<br><br>";
+    echo '<a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Go Back</a>';
+} else {
+    // Display the form
+?>
+    <h2>Enter Your Details</h2>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        Name: <input type="text" name="name" required><br><br>
+        Age: <input type="number" name="age" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+<?php
+}
+?>
+
+</body>
+</html>
+output:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pass Information Between Pages - PHP POST Method</title>
+</head>
+<body>
+
+
+Warning: Undefined array key "REQUEST_METHOD" in /tmp/FDdao85vkk/main.php on line 9
+    <h2>Enter Your Details</h2>
+    <form action="/tmp/FDdao85vkk/main.php" method="post">
+        Name: <input type="text" name="name" required><br><br>
+        Age: <input type="number" name="age" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
+
+
+=== Code Execution Successful ===
