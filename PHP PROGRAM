@@ -501,3 +501,62 @@ Warning: Undefined array key "REQUEST_METHOD" in /tmp/nNaagHLCht/main.php on lin
 
 
 === Code Execution Successful ===
+question 15
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of Digits</title>
+</head>
+<body>
+
+<h2>Calculate Sum of Digits</h2>
+
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Enter a number: 
+    <input type="number" name="number" required>
+    <input type="submit" value="Calculate">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $number = abs(intval($_POST["number"])); // Ensure positive integer
+    $original = $number;
+    $sum = 0;
+
+    while ($number > 0) {
+        $digit = $number % 10;
+        $sum += $digit;
+        $number = (int)($number / 10);
+    }
+
+    echo "<h3>Sum of digits of $original is: $sum</h3>";
+}
+?>
+
+</body>
+</html>
+output:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sum of Digits</title>
+</head>
+<body>
+
+<h2>Calculate Sum of Digits</h2>
+
+<form method="post" action="/tmp/XhYSrt3ILr/main.php">
+    Enter a number: 
+    <input type="number" name="number" required>
+    <input type="submit" value="Calculate">
+</form>
+
+
+Warning: Undefined array key "REQUEST_METHOD" in /tmp/XhYSrt3ILr/main.php on line 17
+
+</body>
+</html>
+
+
+=== Code Execution Successful ===
