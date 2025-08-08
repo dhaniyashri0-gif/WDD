@@ -170,4 +170,49 @@ Try Again'; } else { ?>
 Enter Your Name
 " method="post"> Name: 
 
+question 8
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Best Drink Deal</title>
+</head>
+<body>
 
+<?php
+function deal($costA, $sizeA, $costB, $sizeB) {
+    $costPerUnitA = $costA / $sizeA;
+    $costPerUnitB = $costB / $sizeB;
+
+    echo "<h3>Drink A: Rs.{$costA} for {$sizeA} units => Cost per unit: Rs." . number_format($costPerUnitA, 2) . "</h3>";
+    echo "<h3>Drink B: Rs.{$costB} for {$sizeB} units => Cost per unit: Rs." . number_format($costPerUnitB, 2) . "</h3><br>";
+
+    if ($costPerUnitA < $costPerUnitB) {
+        echo "<strong>Recommendation: Choose Drink A to save money.</strong>";
+    } elseif ($costPerUnitA > $costPerUnitB) {
+        echo "<strong>Recommendation: Choose Drink B to save money.</strong>";
+    } else {
+        echo "<strong>Both drinks offer the same value for money.</strong>";
+    }
+}
+
+// Values: Drink A = Rs.25 for 11 units, Drink B = Rs.23 for 9 units
+deal(25, 11, 23, 9);
+?>
+
+</body>
+</html>
+output:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Best Drink Deal</title>
+</head>
+<body>
+
+<h3>Drink A: Rs.25 for 11 units => Cost per unit: Rs.2.27</h3><h3>Drink B: Rs.23 for 9 units => Cost per unit: Rs.2.56</h3><br><strong>Recommendation: Choose Drink A to save money.</strong>
+</body>
+</html>
+
+
+=== Code Execution Successful ===
