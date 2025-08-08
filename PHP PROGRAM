@@ -1057,3 +1057,134 @@ No search query submitted yet.
 
 "; } ?>
 Try a GET search by clicking: Search for "php" using GET
+question24
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PHP String Functions Demo</title>
+</head>
+<body>
+
+<h2>PHP String Functions Examples</h2>
+
+<?php
+$str = "  Hello, World! Welcome to PHP string functions.  ";
+echo "<p>Original String: <strong>'$str'</strong></p>";
+
+// 1. strlen() - Length of string
+echo "<p>Length of string: " . strlen($str) . "</p>";
+
+// 2. trim() - Remove whitespace from both ends
+$trimmed = trim($str);
+echo "<p>Trimmed string: <strong>'$trimmed'</strong></p>";
+
+// 3. strtolower() - Convert to lowercase
+echo "<p>Lowercase: " . strtolower($trimmed) . "</p>";
+
+// 4. strtoupper() - Convert to uppercase
+echo "<p>Uppercase: " . strtoupper($trimmed) . "</p>";
+
+// 5. strpos() - Find position of substring
+$pos = strpos($trimmed, "World");
+echo $pos !== false 
+    ? "<p>Position of 'World': $pos</p>" 
+    : "<p>'World' not found</p>";
+
+// 6. str_replace() - Replace substring
+$replaced = str_replace("World", "Universe", $trimmed);
+echo "<p>Replace 'World' with 'Universe': $replaced</p>";
+
+// 7. substr() - Extract part of string
+$sub = substr($trimmed, 7, 5);
+echo "<p>Substring from position 7, length 5: $sub</p>";
+
+// 8. explode() - Split string into array by delimiter
+$words = explode(" ", $trimmed);
+echo "<p>Words array: ";
+print_r($words);
+echo "</p>";
+
+// 9. implode() - Join array elements into a string
+$joined = implode("-", $words);
+echo "<p>Joined with '-': $joined</p>";
+
+// 10. str_repeat() - Repeat a string multiple times
+echo "<p>Repeat 'PHP' 3 times: " . str_repeat("PHP ", 3) . "</p>";
+
+// 11. ucwords() - Capitalize first letter of each word
+echo "<p>Capitalized Words: " . ucwords(strtolower($trimmed)) . "</p>";
+
+// 12. strcmp() - Compare two strings
+$cmp = strcmp("apple", "Apple");
+echo "<p>Comparing 'apple' and 'Apple': $cmp (0=same, >0 first is greater, <0 second is greater)</p>";
+
+// 13. md5() - Generate MD5 hash
+echo "<p>MD5 hash of trimmed string: " . md5($trimmed) . "</p>";
+
+// 14. nl2br() - Convert newlines to <br> tags
+$textWithNewlines = "Line1\nLine2\nLine3";
+echo "<p>Newlines converted:<br>" . nl2br($textWithNewlines) . "</p>";
+
+// 15. htmlspecialchars() - Convert special characters to HTML entities
+$unsafe = "<b>Hello</b> & 'Welcome'";
+echo "<p>HTML Safe String: " . htmlspecialchars($unsafe) . "</p>";
+?>
+
+</body>
+</html>
+output:
+PHP String Functions Examples
+Original String: '$str'
+"; // 1. strlen() - Length of string echo "
+Length of string: " . strlen($str) . "
+
+"; // 2. trim() - Remove whitespace from both ends $trimmed = trim($str); echo "
+Trimmed string: '$trimmed'
+
+"; // 3. strtolower() - Convert to lowercase echo "
+Lowercase: " . strtolower($trimmed) . "
+
+"; // 4. strtoupper() - Convert to uppercase echo "
+Uppercase: " . strtoupper($trimmed) . "
+
+"; // 5. strpos() - Find position of substring $pos = strpos($trimmed, "World"); echo $pos !== false ? "
+Position of 'World': $pos
+
+" : "
+'World' not found
+
+"; // 6. str_replace() - Replace substring $replaced = str_replace("World", "Universe", $trimmed); echo "
+Replace 'World' with 'Universe': $replaced
+
+"; // 7. substr() - Extract part of string $sub = substr($trimmed, 7, 5); echo "
+Substring from position 7, length 5: $sub
+
+"; // 8. explode() - Split string into array by delimiter $words = explode(" ", $trimmed); echo "
+Words array: "; print_r($words); echo "
+
+"; // 9. implode() - Join array elements into a string $joined = implode("-", $words); echo "
+Joined with '-': $joined
+
+"; // 10. str_repeat() - Repeat a string multiple times echo "
+Repeat 'PHP' 3 times: " . str_repeat("PHP ", 3) . "
+
+"; // 11. ucwords() - Capitalize first letter of each word echo "
+Capitalized Words: " . ucwords(strtolower($trimmed)) . "
+
+"; // 12. strcmp() - Compare two strings $cmp = strcmp("apple", "Apple"); echo "
+Comparing 'apple' and 'Apple': $cmp (0=same, >0 first is greater, <0 second is greater)
+
+"; // 13. md5() - Generate MD5 hash echo "
+MD5 hash of trimmed string: " . md5($trimmed) . "
+
+"; // 14. nl2br() - Convert newlines to
+tags $textWithNewlines = "Line1\nLine2\nLine3"; echo "
+Newlines converted:
+" . nl2br($textWithNewlines) . "
+
+"; // 15. htmlspecialchars() - Convert special characters to HTML entities $unsafe = "Hello & 'Welcome'"; echo "
+HTML Safe String: " . htmlspecialchars($unsafe) . "
+
+"; ?> output:
+
