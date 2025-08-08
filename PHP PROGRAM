@@ -1000,3 +1000,60 @@ Enter the word to count:
 
 
 The word '" . htmlspecialchars($word) . "' occurs $count time(s) in the given string."; } ?>
+question23
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GET vs POST Prioritization</title>
+</head>
+<body>
+
+<h2>Search Example: Prioritize POST over GET</h2>
+
+<!-- Search form using POST -->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    Search Query: 
+    <input type="text" name="query" value="<?php 
+        // Show the current query from POST or GET for convenience
+        if (!empty($_POST['query'])) {
+            echo htmlspecialchars($_POST['query']);
+        } elseif (!empty($_GET['query'])) {
+            echo htmlspecialchars($_GET['query']);
+        }
+    ?>">
+    <input type="submit" value="Search">
+</form>
+
+<?php
+// Determine search query prioritizing POST over GET
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['query'])) {
+    $search = $_POST['query'];
+    echo "<p><strong>Using POST data:</strong> You searched for: <em>" . htmlspecialchars($search) . "</em></p>";
+} elseif (!empty($_GET['query'])) {
+    $search = $_GET['query'];
+    echo "<p><strong>Using GET data:</strong> You searched for: <em>" . htmlspecialchars($search) . "</em></p>";
+} else {
+    echo "<p>No search query submitted yet.</p>";
+}
+?>
+
+<!-- Example link using GET -->
+<p>Try a GET search by clicking: <a href="?query=php">Search for "php" using GET</a></p>
+
+</body>
+</html>
+output:
+Search Example: Prioritize POST over GET
+"> Search Query: 
+<?php         // Show the current query from POST or GET for convenience        if (!empty($_POST['query'])) {            echo htmlspecialchars($_POST['query']);        } elseif (!empty($_GET['query'])) {            echo htmlspecialchars($_GET['query']);        }    ?>
+ 
+Using POST data: You searched for: " . htmlspecialchars($search) . "
+"; } elseif (!empty($_GET['query'])) { $search = $_GET['query']; echo "
+Using GET data: You searched for: " . htmlspecialchars($search) . "
+
+"; } else { echo "
+No search query submitted yet.
+
+"; } ?>
+Try a GET search by clicking: Search for "php" using GET
