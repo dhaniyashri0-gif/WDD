@@ -256,3 +256,36 @@ this,,that+2.2
 
 
 === Code Execution Successful ===
+question13
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>substr() Example</title>
+</head>
+<body>
+
+<?php
+// Convert the number to a string (good practice)
+$sub = substr("12345", 2, 2);  // Starts at index 2, extracts 2 characters
+echo "sub is $sub";  // Expected output: sub is 34
+?>
+
+</body>
+</html>
+output:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>substr() Example</title>
+</head>
+<body>
+
+<?php
+// Convert the number to a string (good practice)
+$sub = substr("12345", 2, 2);  // Starts at index 2, extracts 2 characters
+echo "sub is $sub";  // Expected output: sub is 34
+?>
+
+</body>
+</html>
