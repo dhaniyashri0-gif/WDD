@@ -749,4 +749,48 @@ isset() Function Example
 \$email is not set at all.
 
 "; } ?>
+question19
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Highest and Lowest in Array</title>
+</head>
+<body>
 
+<h2>Find Highest and Lowest Numbers</h2>
+
+<?php
+// Function to get highest and lowest values
+function getMinMax($numbers) {
+    $max = max($numbers);
+    $min = min($numbers);
+    return array("highest" => $max, "lowest" => $min);
+}
+
+// Example array of numbers
+$numberArray = array(45, 67, 23, 89, 12, 98, 34);
+
+// Call the function
+$result = getMinMax($numberArray);
+
+// Display results
+echo "<p>Array: " . implode(", ", $numberArray) . "</p>";
+echo "<p>Highest Value: <strong>" . $result["highest"] . "</strong></p>";
+echo "<p>Lowest Value: <strong>" . $result["lowest"] . "</strong></p>";
+?>
+
+</body>
+</html>
+output:
+Find Highest and Lowest Numbers
+$max, "lowest" => $min); } // Example array of numbers $numberArray = array(45, 67, 23, 89, 12, 98, 34); // Call the function $result = getMinMax($numberArray); // Display results echo "
+Array: " . implode(", ", $numberArray) . "
+
+"; echo "
+Highest Value: " . $result["highest"] . "
+
+"; echo "
+Lowest Value: " . $result["lowest"] . "
+
+"; ?>
