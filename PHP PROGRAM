@@ -124,3 +124,50 @@ Warning: Undefined array key "REQUEST_METHOD" in /tmp/FDdao85vkk/main.php on lin
 
 
 === Code Execution Successful ===
+
+question7
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Greeting Form</title>
+</head>
+<body>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST["name"]);
+
+    if (empty($name)) {
+        echo "<h3 style='color:red;'>Error: Name field cannot be empty.</h3>";
+    } else {
+        $safeName = htmlspecialchars($name);
+        echo "<h3>Hello, $safeName! Welcome to Everyone!<br>Have a nice day!!</h3>";
+    }
+
+    echo '<br><a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Try Again</a>';
+} else {
+?>
+
+    <h2>Enter Your Name</h2>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        Name: <input type="text" name="name"><br><br>
+        <input type="submit" value="Greet Me">
+    </form>
+
+<?php
+}
+?>
+
+</body>
+</html>
+output:
+Error: Name field cannot be empty."; } else { $safeName = htmlspecialchars($name); echo "
+Hello, $safeName! Welcome to Everyone!
+Have a nice day!!
+"; } echo '
+Try Again'; } else { ?>
+Enter Your Name
+" method="post"> Name: 
+
+
