@@ -146,3 +146,76 @@ ANSWER
 </body>
 </html>
 
+question 5
+input:
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Purchase Cost Calculator</title>
+</head>
+<body>
+
+<h2>Purchase Cost Calculator</h2>
+
+<form method="post">
+    <h3>Item 1:</h3>
+    Price: <input type="number" name="price1" step="0.01" required> 
+    Quantity: <input type="number" name="quantity1" required><br><br>
+
+    <h3>Item 2:</h3>
+    Price: <input type="number" name="price2" step="0.01" required> 
+    Quantity: <input type="number" name="quantity2" required><br><br>
+
+    <h3>Item 3:</h3>
+    Price: <input type="number" name="price3" step="0.01" required> 
+    Quantity: <input type="number" name="quantity3" required><br><br>
+
+    <input type="submit" name="calculate" value="Calculate Total">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['calculate'])) {
+    // Get values from the form
+    $price1 = $_POST['price1'];
+    $quantity1 = $_POST['quantity1'];
+    $price2 = $_POST['price2'];
+    $quantity2 = $_POST['quantity2'];
+    $price3 = $_POST['price3'];
+    $quantity3 = $_POST['quantity3'];
+
+    // Calculate subtotal
+    $subtotal = ($price1 * $quantity1) + ($price2 * $quantity2) + ($price3 * $quantity3);
+    $tax = $subtotal * 0.10;
+    $total = $subtotal + $tax;
+
+    // Display results
+    echo "<h3>Results:</h3>";
+    echo "Subtotal: $" . number_format($subtotal, 2) . "<br>";
+    echo "Tax (10%): $" . number_format($tax, 2) . "<br>";
+    echo "Total Cost: $" . number_format($total, 2) . "<br>";
+}
+?>
+
+</body>
+</html>
+output:
+Purchase Cost Calculator
+Item 1:
+Price: 
+ Quantity: 
+
+
+Item 2:
+Price: 
+ Quantity: 
+
+
+Item 3:
+Price: 
+ Quantity: 
+
+
+Results:"; echo "Subtotal: $" . number_format($subtotal, 2) . "
+"; echo "Tax (10%): $" . number_format($tax, 2) . "
+"; echo "Total Cost: $" . number_format($total, 2) . "
+"; } ?>
