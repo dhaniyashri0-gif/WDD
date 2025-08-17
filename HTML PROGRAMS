@@ -578,3 +578,195 @@ echo "sub is $sub";  // Expected output: sub is 34
 
 </body>
 </html>
+QUESTION 14
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Form</title>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+
+<form method="post" action="">
+  <label for="name">Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" name="email" required><br><br>
+
+  <label for="message">Message:</label><br>
+  <textarea name="message" rows="5" cols="30" required></textarea><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<br>
+
+<?php
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  // Collect and sanitize input values
+  $name = htmlspecialchars($_POST["name"]);
+  $email = htmlspecialchars($_POST["email"]);
+
+  // Display confirmation message
+  echo "<h3>Thank you for contacting us, $name!</h3>";
+  echo "<p>We have received your message and will get back to you at <strong>$email</strong>.</p>";
+}
+?>
+
+</body>
+</html>
+
+QUESTION 15
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Digits</title>
+</head>
+<body>
+
+<h2>Enter a Number to Calculate Sum of Digits</h2>
+
+<form method="post" action="">
+  <label for="number">Number:</label>
+  <input type="number" name="number" required>
+  <input type="submit" value="Calculate">
+</form>
+
+<br>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $number = abs((int)$_POST["number"]); // Ensure it's positive integer
+  $sum = 0;
+  $temp = $number;
+
+  while ($temp > 0) {
+    $digit = $temp % 10;  // Extract last digit
+    $sum += $digit;       // Add to sum
+    $temp = (int)($temp / 10); // Remove last digit
+  }
+
+  echo "<h3>Sum of digits of $number is: $sum</h3>";
+}
+?>
+
+</body>
+</html>
+
+QUESTION 16
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Two Numbers</title>
+</head>
+<body>
+
+<h2>Enter Two Numbers to Find Their Sum</h2>
+
+<form method="post" action="">
+  <label>First Number:</label>
+  <input type="number" name="num1" required><br><br>
+
+  <label>Second Number:</label>
+  <input type="number" name="num2" required><br><br>
+
+  <input type="submit" name="submit" value="Add Numbers">
+</form>
+
+<?php
+// Function to add two numbers
+function addNumbers($a, $b) {
+  return $a + $b;
+}
+
+// Check if form is submitted
+if (isset($_POST['submit'])) {
+  $num1 = (int)$_POST['num1'];
+  $num2 = (int)$_POST['num2'];
+  $sum = addNumbers($num1, $num2);
+
+  echo "<h3>Result: $num1 + $num2 = $sum</h3>";
+}
+?>
+
+</body>
+</html>
+
+QUENTION 17
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Two Numbers</title>
+</head>
+<body>
+
+<h2>Enter Two Numbers to Find Their Sum</h2>
+
+<form method="post" action="">
+  <label>First Number:</label>
+  <input type="number" name="num1" required><br><br>
+
+  <label>Second Number:</label>
+  <input type="number" name="num2" required><br><br>
+
+  <input type="submit" name="submit" value="Add Numbers">
+</form>
+
+<?php
+// Function to add two numbers
+function addNumbers($a, $b) {
+  return $a + $b;
+}
+
+// Check if form is submitted
+if (isset($_POST['submit'])) {
+  $num1 = (int)$_POST['num1'];
+  $num2 = (int)$_POST['num2'];
+  $sum = addNumbers($num1, $num2);
+
+  echo "<h3>Result: $num1 + $num2 = $sum</h3>";
+}
+?>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sum of Two Numbers</title>
+</head>
+<body>
+
+<h2>Enter Two Numbers to Find Their Sum</h2>
+
+<form method="post" action="">
+  <label>First Number:</label>
+  <input type="number" name="num1" required><br><br>
+
+  <label>Second Number:</label>
+  <input type="number" name="num2" required><br><br>
+
+  <input type="submit" name="submit" value="Add Numbers">
+</form>
+
+<?php
+// Function to add two numbers
+function addNumbers($a, $b) {
+  return $a + $b;
+}
+
+// Check if form is submitted
+if (isset($_POST['submit'])) {
+  $num1 = (int)$_POST['num1'];
+  $num2 = (int)$_POST['num2'];
+  $sum = addNumbers($num1, $num2);
+
+  echo "<h3>Result: $num1 + $num2 = $sum</h3>";
+}
+?>
+
+</body>
+</html>
